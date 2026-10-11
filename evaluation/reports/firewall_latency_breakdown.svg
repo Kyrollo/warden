@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#070913"/>
+      <stop offset="100%" stopColor="#111327"/>
+    </linearGradient>
+    <linearGradient id="barGradSig" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stopColor="#6366f1"/>
+      <stop offset="100%" stopColor="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="barGradSem" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stopColor="#9333ea"/>
+      <stop offset="100%" stopColor="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="barGradPii" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stopColor="#06b6d4"/>
+      <stop offset="100%" stopColor="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="barGradOut" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stopColor="#f43f5e"/>
+      <stop offset="100%" stopColor="#fb7185"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" rx="12" fill="url(#bg)" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="35" y="42" fill="#f8fafc" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="18" font-weight="700">
+    Warden Multi-Stage Firewall Latency &amp; Threat Defense Benchmark
+  </text>
+  <text x="35" y="62" fill="#94a3b8" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="12">
+    Inbound &amp; Outbound Inspection Overhead (Total Latency: 943.82ms) | Interception Accuracy: 100%
+  </text>
+
+  <!-- Stage Bars -->
+  <!-- Stage 1 -->
+  <g transform="translate(40, 95)">
+    <text x="0" y="16" fill="#cbd5e1" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">Stage 1: Regex &amp; Signature Scan</text>
+    <rect x="260" y="2" width="20" height="18" rx="4" fill="url(#barGradSig)"/>
+    <text x="290" y="16" fill="#818cf8" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">0.21 ms</text>
+  </g>
+
+  <!-- Stage 2 -->
+  <g transform="translate(40, 150)">
+    <text x="0" y="16" fill="#cbd5e1" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">Stage 2: Zero-Shot Semantic Classifier</text>
+    <rect x="260" y="2" width="7546" height="18" rx="4" fill="url(#barGradSem)"/>
+    <text x="7816" y="16" fill="#c084fc" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">943.34 ms</text>
+  </g>
+
+  <!-- Stage 3 -->
+  <g transform="translate(40, 205)">
+    <text x="0" y="16" fill="#cbd5e1" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">Stage 3: PII Entity Redaction</text>
+    <rect x="260" y="2" width="20" height="18" rx="4" fill="url(#barGradPii)"/>
+    <text x="290" y="16" fill="#22d3ee" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">0.20 ms</text>
+  </g>
+
+  <!-- Stage 4 -->
+  <g transform="translate(40, 260)">
+    <text x="0" y="16" fill="#cbd5e1" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">Stage 4: Canary &amp; Output Inspection</text>
+    <rect x="260" y="2" width="20" height="18" rx="4" fill="url(#barGradOut)"/>
+    <text x="290" y="16" fill="#fb7185" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">0.87 ms</text>
+  </g>
+
+  <!-- Total Summary Box -->
+  <g transform="translate(40, 315)">
+    <rect width="720" height="48" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#f8fafc" font-family="'IBM Plex Sans', sans-serif" font-size="12" font-weight="600">
+      Total Average Pipeline Latency Budget: <tspan fill="#10b981" font-family="'IBM Plex Mono', monospace">943.82 ms</tspan>
+    </text>
+    <text x="500" y="30" fill="#38bdf8" font-family="'IBM Plex Mono', monospace" font-size="11">
+      Hardware: RTX A5000 GPU (16GB)
+    </text>
+  </g>
+</svg>
