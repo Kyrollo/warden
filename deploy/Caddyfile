@@ -1,0 +1,7 @@
+warden.local {
+    reverse_proxy localhost:3003
+
+    handle_path /api/* {
+        reverse_proxy localhost:8003
+    }
+}

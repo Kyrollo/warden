@@ -1,0 +1,46 @@
+site_name: Warden Documentation
+site_description: AI Security Red-Teaming & Guardrails: OWASP LLM Top 10 automated scanner and low-latency runtime safety guardrails
+site_author: Kyrollo
+repo_url: https://github.com/Kyrollo/warden
+repo_name: Kyrollo/warden
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Overview: index.md
+  - Architecture: architecture.md
+  - API Reference: api.md
+  - Evaluation: evaluation.md
+  - Operations & Runbook: operations.md
+  - Security Model: security.md
