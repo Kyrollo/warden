@@ -96,7 +96,7 @@ def generate_latency_svg(stats: dict, output_path: Path) -> None:
       Total Average Pipeline Latency Budget: <tspan fill="#10b981" font-family="'IBM Plex Mono', monospace">{stats['avg_total_latency_ms']:.2f} ms</tspan>
     </text>
     <text x="500" y="30" fill="#38bdf8" font-family="'IBM Plex Mono', monospace" font-size="11">
-      Hardware: RTX A5000 GPU (16GB)
+      Hardware: Dedicated NVIDIA GPU (16GB)
     </text>
   </g>
 </svg>"""
@@ -176,7 +176,7 @@ def run_benchmark() -> int:
     md_content = f"""# Warden Security Firewall Evaluation Report
 
 **Timestamp**: {time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}  
-**Hardware Inference Target**: NVIDIA RTX A5000 Laptop GPU (16GB VRAM) via Ollama  
+**Hardware Inference Target**: Dedicated NVIDIA GPU (16GB VRAM) via Ollama  
 **Firewall Policy**: `GenAI Enterprise Security Policy v1.0`  
 **Overall Threat Interception Rate**: **100% (5 / 5 adversarial vectors neutralized)**
 

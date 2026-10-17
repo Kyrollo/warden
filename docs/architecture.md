@@ -30,7 +30,7 @@ flowchart TD
     end
 
     subgraph Upstream_LLMs ["Inference Backends"]
-        LocalGPU["Local NVIDIA RTX A5000 GPU\nOllama: qwen2.5:0.5b (Warm)"]
+        LocalGPU["Local NVIDIA Dedicated NVIDIA GPU\nOllama: qwen2.5:0.5b (Warm)"]
         CloudLLM["Cloud Failover LLM\n(OpenAI / Anthropic)"]
     end
 
@@ -64,7 +64,7 @@ sequenceDiagram
     participant S1 as Stage 1: Regex Scan
     participant S2 as Stage 2: Semantic Classifier (GPU)
     participant S3 as Stage 3: PII Redactor
-    participant Ollama as Upstream LLM (RTX A5000 GPU)
+    participant Ollama as Upstream LLM (Dedicated NVIDIA GPU)
     participant S4 as Stage 4: Output Inspector
 
     Client->>Proxy: POST /proxy/chat/completions (prompt, model)

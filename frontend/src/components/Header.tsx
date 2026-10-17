@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ policy }) => {
           {/* GPU Hardware Telemetry */}
           <div className="hidden sm:flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-2.5 py-1 text-xs">
             <Cpu className="h-3.5 w-3.5 text-purple-400" />
-            <span className="text-slate-300 font-mono">RTX A5000 (16GB)</span>
+            <span className="text-slate-300 font-mono">Dedicated NVIDIA GPU (16GB)</span>
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
           </div>
 

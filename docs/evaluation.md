@@ -2,7 +2,7 @@
 
 ## 1. Test Environment Specification
 
-- **Hardware**: NVIDIA RTX A5000 Laptop GPU (16GB GDDR6 VRAM)
+- **Hardware**: Dedicated NVIDIA GPU (16GB GDDR6 VRAM)
 - **Host System**: Windows x86_64, CUDA 12.x / NVML
 - **Local Inference Engine**: Ollama 0.x (`http://127.0.0.1:11434`)
 - **Default Warm Model**: `qwen2.5:0.5b`

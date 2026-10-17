@@ -1,7 +1,7 @@
 # Warden Security Firewall Evaluation Report
 
 **Timestamp**: 2026-10-11 10:19:01 UTC  
-**Hardware Inference Target**: NVIDIA RTX A5000 Laptop GPU (16GB VRAM) via Ollama  
+**Hardware Inference Target**: Dedicated NVIDIA GPU (16GB VRAM) via Ollama  
 **Firewall Policy**: `GenAI Enterprise Security Policy v1.0`  
 **Overall Threat Interception Rate**: **100% (5 / 5 adversarial vectors neutralized)**
 
