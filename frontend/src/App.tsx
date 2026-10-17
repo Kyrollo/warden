@@ -5,10 +5,11 @@ import { Header } from './components/Header';
 import { SocOperationsTab } from './components/SocOperationsTab';
 import { RedTeamLabTab } from './components/RedTeamLabTab';
 import { PolicyStudioTab } from './components/PolicyStudioTab';
-import { ShieldAlert, Bug, Sliders, Radio, Activity } from 'lucide-react';
+import { FileUploadZone } from './components/FileUploadZone';
+import { ShieldAlert, Bug, Sliders, Radio, Activity, FolderUp } from 'lucide-react';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'soc' | 'lab' | 'policy'>('soc');
+  const [activeTab, setActiveTab] = useState<'soc' | 'lab' | 'policy' | 'uploads'>('soc');
   const [policy, setPolicy] = useState<FirewallPolicy | null>(null);
   const [incidents, setIncidents] = useState<AuditIncident[]>([]);
   const [traffic, setTraffic] = useState<TrafficStreamItem[]>([]);
@@ -82,6 +83,18 @@ export function App() {
               <Sliders className="h-4 w-4" />
               <span>Policy Rule Studio</span>
             </button>
+
+            <button
+              onClick={() => setActiveTab('uploads')}
+              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition ${
+                activeTab === 'uploads'
+                  ? 'bg-purple-600 text-white shadow-md shadow-purple-900/40'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+              }`}
+            >
+              <FolderUp className="h-4 w-4" />
+              <span>Blocklist & Rule Upload</span>
+            </button>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-slate-400 font-mono">
@@ -106,6 +119,24 @@ export function App() {
             {activeTab === 'lab' && <RedTeamLabTab presets={presets} />}
             {activeTab === 'policy' && (
               <PolicyStudioTab policy={policy} onPolicyUpdated={loadData} />
+            )}
+            {activeTab === 'uploads' && (
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-100">Firewall Rules & Threat Blocklists</h3>
+                  <p className="text-xs text-slate-400">
+                    Upload custom security blocklists, keyword filters, and YAML policies to harden the active firewall.
+                  </p>
+                </div>
+                <FileUploadZone
+                  apiBaseUrl="/api/v1"
+                  allowedExtensions={['.txt', '.csv', '.yaml', '.yml', '.json']}
+                  acceptedFormatsText="TXT, CSV, YAML, JSON"
+                  onFileProcessed={() => {
+                    loadData();
+                  }}
+                />
+              </div>
             )}
           </div>
         )}

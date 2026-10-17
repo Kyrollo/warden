@@ -8,6 +8,7 @@ from src.warden.api.v1.inspect import router as inspect_router
 from src.warden.api.v1.lab import router as lab_router
 from src.warden.api.v1.policies import router as policies_router
 from src.warden.api.v1.proxy import router as proxy_router
+from src.warden.api.v1.files import router as files_router
 
 api_v1_router = APIRouter()
 api_v1_router.include_router(health_router)
@@ -17,6 +18,7 @@ api_v1_router.include_router(proxy_router)
 api_v1_router.include_router(policies_router)
 api_v1_router.include_router(incidents_router)
 api_v1_router.include_router(lab_router)
+api_v1_router.include_router(files_router)
 
 
 @api_v1_router.get("/info", tags=["info"])

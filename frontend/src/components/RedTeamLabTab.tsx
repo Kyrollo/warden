@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RedTeamAttackResponse, RedTeamPreset } from '../types/warden';
 import { runRedTeamAttack } from '../lib/api';
 import { Play, ShieldAlert, Sparkles, Terminal, CheckCircle2, XCircle, Gauge, Bug } from 'lucide-react';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 interface RedTeamLabTabProps {
   presets: RedTeamPreset[];
@@ -169,14 +170,14 @@ export const RedTeamLabTab: React.FC<RedTeamLabTabProps> = ({ presets }) => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
               Sanitization Output
             </h4>
-            <div className="rounded-lg border border-slate-800 bg-slate-950 p-3 font-mono text-xs text-slate-300 min-h-[120px] max-h-[180px] overflow-y-auto leading-relaxed">
+            <div className="rounded-lg border border-slate-800 bg-slate-950 p-3 font-mono text-xs text-slate-300 min-h-[140px] max-h-[500px] overflow-y-auto leading-relaxed">
               {result ? (
                 result.blocked ? (
                   <span className="text-rose-400 font-bold">
                     [BLOCKED BY WARDEN FIREWALL: CRITICAL THREAT NEUTRALIZED]
                   </span>
                 ) : (
-                  <span>{result.sanitized_text}</span>
+                  <MarkdownRenderer content={result.sanitized_text} defaultMaxHeight="max-h-[420px]" />
                 )
               ) : (
                 <span className="text-slate-600">Sanitized prompt output will appear here.</span>

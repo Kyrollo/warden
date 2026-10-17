@@ -22,7 +22,7 @@ class ChatCompletionRequest(BaseModel):
     model: str = "qwen2.5:0.5b"
     messages: list[ChatMessage]
     temperature: float = 0.7
-    max_tokens: int = 512
+    max_tokens: int = 2048
     policy_id: str = "policy_genai_enterprise"
 
 
