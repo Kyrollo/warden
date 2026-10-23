@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "warden"
 version = "1.0.0"
 description = "AI Security Red-Teaming & Guardrails: OWASP LLM Top 10 automated scanner and low-latency runtime safety guardrails"
-readme = "../README.md"
+readme = "README.md"
 authors = [{ name = "Kyrollo", email = "kyrollo@users.noreply.github.com" }]
 requires-python = ">=3.12"
 dependencies = [
